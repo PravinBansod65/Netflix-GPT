@@ -2,6 +2,8 @@ import React from "react";
 import Header from "./Header";
 import { useState, useRef } from "react";
 import CheckValidData from "../utils/Validate.js";
+import { createUserWithEmailAndPassword , signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase.js";
 
 const Login = () => {
   // ?---------------- toggling the SignUp/In form  --------------------------
@@ -15,15 +17,58 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
 
-  const [errorMessege, setErrorMessege] = useState("");
+  const [errorMessege, setErrorMessege] = useState(null);
   const handleButtonClick = () => {
     // CheckValidData(name,email,password);
     console.log(email.current.value);
     console.log(password.current.value);
+    console.log(name.current.value);
 
-    const Messege = CheckValidData(email.current.value, password.current.value);
+    const Messege = CheckValidData(
+      name.current.value,
+      email.current.value,
+      password.current.value
+    );
     console.log(Messege);
     setErrorMessege(Messege);
+    if (Messege) return;
+
+    // Checking the signUp form
+    if (!isSignInForm) {
+      //? for SignUp
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessege(errorCode + "-" + errorMessage);
+          // ..
+        });
+    }
+    // Checking the SignIn form
+    else {
+      //? for SignIn logic
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        });
+    }
   };
 
   return (
