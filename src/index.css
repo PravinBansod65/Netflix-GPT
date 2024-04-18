@@ -7,3 +7,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+*::-webkit-scrollbar{
+  display: none;
+  overflow-x:hidden;
+}
+
+
+.MovieList:first-child{
+  background: transparent !important;
+  z-index: 100000;
+}

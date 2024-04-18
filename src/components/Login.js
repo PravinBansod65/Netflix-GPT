@@ -7,10 +7,13 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../utils/firebase.js";
-import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice.js";
+import { User_Img } from "../utils/constants.js";
 
 const Login = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // ?---------------- toggling the SignUp/In form  --------------------------
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -26,20 +29,21 @@ const Login = () => {
   const [errorMessege, setErrorMessege] = useState(null);
   const handleButtonClick = () => {
     // CheckValidData(name,email,password);
+    // console.log(name.current.value);
     console.log(email.current.value);
     console.log(password.current.value);
-    // console.log(name.current.value);
 
     const Messege = CheckValidData(
-      // name.current.value,
+      !isSignInForm ? name.current.value : null,
       email.current.value,
       password.current.value
     );
+
     console.log(Messege);
     setErrorMessege(Messege);
     if (Messege) return;
 
-    // Checking the signUp form
+    //!--------------------- Checking the signUp form-------------------------------------------
     if (!isSignInForm) {
       //? for SignUp
       createUserWithEmailAndPassword(
@@ -50,9 +54,33 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+
+          // ?updating profile using update profile firebase api's
+
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: User_Img,
+          })
+            .then(() => {
+              // Profile updated!
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+
+            })
+            .catch((error) => {
+              // An error occurred
+              setErrorMessege(error.message);
+            });
+
           console.log(user);
           //* ---------------navigating using react router Dom if signout or in sign/up login page-------------------
-          navigate("/");
 
           // ...
         })
@@ -63,7 +91,7 @@ const Login = () => {
           // ..
         });
     }
-    // Checking the SignIn form ...for SignIn Logic
+    //!------------- else{} Checking the SignIn form ...for SignIn Logic-----------------------------
     else {
       //? for SignIn logic
       signInWithEmailAndPassword(
@@ -76,7 +104,6 @@ const Login = () => {
           const user = userCredential.user;
           console.log(user);
           // * ------------ navigating using react router Dom if User Successfully navigating ---------------------------
-          navigate("/browse");
 
           // ...
         })
@@ -91,16 +118,16 @@ const Login = () => {
 
   return (
     <div className="relative">
-      {/*------------------------------ Header------------------------------------------------------------ */}
+      {/* //!------------------------------ Header------------------------------------------------------------ */}
       <Header />
-      {/* --------------BG Netflix ------------------ */}
+      {/* //!--------------BG Netflix ------------------ */}
       <div className="absolute ">
         <img
           src="https://assets.nflxext.com/ffe/siteui/vlv3/7ca5b7c7-20aa-42a8-a278-f801b0d65fa1/fb548c0a-8582-43c5-9fba-cd98bf27452f/IN-en-20240326-popsignuptwoweeks-perspective_alpha_website_large.jpg"
           alt="bg"
         />
       </div>
-      {/*----------Login Form -------------  */}
+      {/* //!----------Login Form -------------  */}
       <form
         onSubmit={(e) => e.preventDefault()}
         className="absolute py-8 rounded-lg w-[450px] flex flex-col justify-center top-8 mx-auto left-0 right-0 bg-[rgba(0,0,0,0.7)] "
