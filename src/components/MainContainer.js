@@ -16,7 +16,7 @@ const MainContainer = () => {
   // console.log(" Main component", process.env.REACT_APP_OpenAI_Key)
 
   return (
-    <div className="">
+    <div className="bg-black pt-[32%] sm:pt-[20%] lg:pt-0">
       <VideoTitle title={original_title} overview={overview} />
       <VideoBG movieId={id} />
     </div>

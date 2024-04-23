@@ -123,7 +123,7 @@ const Login = () => {
       {/* //!--------------BG Netflix ------------------ */}
       <div className="absolute">
         <img
-        className="h-screen w-screen"
+        className="h-screen object-cover"
           src={BG_URL}
           alt="bg"
         />
@@ -131,7 +131,7 @@ const Login = () => {
       {/* //!----------Login Form -------------  */ } 
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute py-8 rounded-lg w-[450px] flex flex-col justify-center top-24 mx-auto left-0 right-0 bg-[rgba(0,0,0,0.7)] "
+        className="absolute mt-3 py-8 w-[360px] rounded-lg md:w-[450px] flex flex-col justify-center top-24 mx-auto left-0 right-0 bg-[rgba(0,0,0,0.7)] "
       >
         <h1 className="p-1 my-3 flex w-[310px] flex-col justify-center mx-auto text-white text-3xl font-bold">
           {isSignInForm ? "Sign In" : "Sign Up"}

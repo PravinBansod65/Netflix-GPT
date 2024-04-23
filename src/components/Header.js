@@ -67,10 +67,10 @@ const Header = () => {
 
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   return (
-    <div className="w-screen flex justify-between absolute px-8 py-2 bg-gradient-to-b from-black z-10">
-      <img className="w-44" src={LOGO} alt="NetflixLogo" />
+    <div className="flex-col md:flex-row w-screen flex justify-between  absolute px-8 py-2 bg-gradient-to-b from-black z-10">
+      <img className="mx-auto w-44 md:mx-0" src={LOGO} alt="NetflixLogo" />
       {user && (
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center justify-between space-x-4">
           {showGptSearch && (
             <select
               className="p-2 rounded-md m-2 bg-gray-900 border text-white"
@@ -84,19 +84,28 @@ const Header = () => {
             </select>
           )}
           <button
-          
-            className={showGptSearch?"py-2 px-3 m-2  bg-red-400 rounded-lg text-white font-semibold":"py-2 px-3 m-2 bg-green-500 rounded-lg text-white font-semibold"}
+            className={
+              showGptSearch
+                ? "py-2 px-3 m-2  bg-red-400 hover:bg-red-500 rounded-lg text-white font-semibold"
+                : "py-2 px-3 m-2 bg-green-500 hover:bg-green-600 rounded-lg text-white font-semibold"
+            }
             onClick={handleGptSearchClick}
           >
-          {  showGptSearch?"🏠 Home":"GPT Search"}
+            {showGptSearch ? "🏠 Home" : "GPT Search"}
           </button>
-          <img
-            className="w-12 h-12  border-2 p-0.5 bg-fuchsia-600"
-            src={user?.photoURL}
-          />
-          <button onClick={handleSignOut} className="font-bold text-white">
-            (Sign Out)
-          </button>
+          <section className="SignOutbtn flex gap-3">
+            {!showGptSearch && (
+              <button onClick={handleSignOut} className="font-bold p-0 m-0  text-white active:text-red-500 hover:text-gray-300">
+                log out &nbsp;<i className="fa-solid fa-right-from-bracket fa-fade"></i>
+              </button>
+            )}
+            {!showGptSearch && (
+              <img
+                className="w-12 h-12  border-2 p-0.5 bg-fuchsia-600"
+                src={user?.photoURL}
+              />
+            )}
+          </section>
         </div>
       )}
     </div>

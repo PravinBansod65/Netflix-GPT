@@ -3,7 +3,9 @@ import { Api_Options } from "../utils/constants";
 
 const VideoBG = ({ movieId }) => {
 
-  const  [trailerId, setTrailerId] = useState(null);
+   const [trailerId, setTrailerId] = useState(null);
+   console.log(trailerId);
+   
 // *------------- Fetching Trailer video and updating in setTrailerId using useState ------------------------------------
   const getMovieVideo = async () => {
     const data = await fetch(
@@ -20,14 +22,14 @@ const VideoBG = ({ movieId }) => {
   };
 
   useEffect(() => {
-    getMovieVideo();
+    !trailerId && getMovieVideo();
   }, []);
 
   return (
     <div className="w-screen ">
       <iframe className="w-screen aspect-video "
         
-        src={"https://www.youtube.com/embed/"+trailerId+"?&autoplay=1&mute=1"}
+        src={"https://www.youtube.com/embed/"+trailerId+"?&autoplay=1&mute=1&controls=0&rel=0"}
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -39,3 +41,4 @@ const VideoBG = ({ movieId }) => {
 };
 
 export default VideoBG;
+// export trailerId;
