@@ -123,7 +123,7 @@ const Login = () => {
       {/* //!--------------BG Netflix ------------------ */}
       <div className="absolute">
         <img
-        className="h-screen object-cover"
+        className="h-screen w-screen object-cover"
           src={BG_URL}
           alt="bg"
         />
