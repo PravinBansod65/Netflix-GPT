@@ -10,7 +10,7 @@ const CheckValidData = (name, email, password) => {
     if (!isNameValid) return "Name is not valid";
   }
   if (!isEmailValid) return "Email is not valid";
-  if (!isPasswordValid) return "Password* is not valid";
+  if (!isPasswordValid) return "Password* is not valid"; 
 
   return null;
 };
