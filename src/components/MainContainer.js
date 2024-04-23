@@ -13,6 +13,8 @@ const MainContainer = () => {
   const { original_title, overview,id } = mainMovie;
   // console.log(original_title, overview);
   
+  console.log(" Main component", process.env.REACT_APP_OpenAI_Key)
+
   return (
     <div className="">
       <VideoTitle title={original_title} overview={overview} />

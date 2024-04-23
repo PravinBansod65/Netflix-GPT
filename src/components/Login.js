@@ -10,7 +10,7 @@ import { auth } from "../utils/firebase.js";
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice.js";
-import { User_Img } from "../utils/constants.js";
+import { BG_URL, User_Img } from "../utils/constants.js";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -121,16 +121,17 @@ const Login = () => {
       {/* //!------------------------------ Header------------------------------------------------------------ */}
       <Header />
       {/* //!--------------BG Netflix ------------------ */}
-      <div className="absolute ">
+      <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/7ca5b7c7-20aa-42a8-a278-f801b0d65fa1/fb548c0a-8582-43c5-9fba-cd98bf27452f/IN-en-20240326-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+        className="h-screen w-screen"
+          src={BG_URL}
           alt="bg"
         />
       </div>
-      {/* //!----------Login Form -------------  */}
+      {/* //!----------Login Form -------------  */ } 
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute py-8 rounded-lg w-[450px] flex flex-col justify-center top-8 mx-auto left-0 right-0 bg-[rgba(0,0,0,0.7)] "
+        className="absolute py-8 rounded-lg w-[450px] flex flex-col justify-center top-24 mx-auto left-0 right-0 bg-[rgba(0,0,0,0.7)] "
       >
         <h1 className="p-1 my-3 flex w-[310px] flex-col justify-center mx-auto text-white text-3xl font-bold">
           {isSignInForm ? "Sign In" : "Sign Up"}
