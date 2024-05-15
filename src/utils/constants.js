@@ -17,7 +17,7 @@ export const Api_Options = {
   export const SUPPORTED_LANGUAGES = [
     { identifier: "en", name: "English" },
     { identifier: "hindi", name: "Hindi" },
-    { identifier: "spanish", name: "Spanish" },
+    { identifier: "Marathi", name: "Marathi" },
   ];
   
   export const OpenAI_Key = "sk-proj-hVAbc8g58DoazwbmCbuaT3BlbkFJQb9HUG4lOxxppFjmqet0";

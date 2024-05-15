@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
-import lang from "../utils/languageConstants";
+// import lang from "../utils/languageConstants";
 import { changeLangauge } from "../utils/configSlice";
 
 const Header = () => {
@@ -67,7 +67,7 @@ const Header = () => {
 
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   return (
-    <div className="flex-col md:flex-row w-screen flex justify-between  absolute px-8 py-2 bg-gradient-to-b from-black z-10">
+    <div className="HeaderMain flex-col md:flex-row w-screen flex justify-between  absolute px-8 py-2 bg-gradient-to-b from-black z-10 fixed top-0">
       <img className="mx-auto w-44 md:mx-0" src={LOGO} alt="NetflixLogo" />
       {user && (
         <div className="flex items-center justify-between space-x-4">
@@ -86,7 +86,7 @@ const Header = () => {
           <button
             className={
               showGptSearch
-                ? "py-2 px-3 m-2  bg-red-400 hover:bg-red-500 rounded-lg text-white font-semibold"
+                ? "py-2 px-3 m-2  bg-red-400 hover:bg-red-500 rounded-lg text-white font-semibold ml-24 sm:m-2"
                 : "py-2 px-3 m-2 bg-green-500 hover:bg-green-600 rounded-lg text-white font-semibold"
             }
             onClick={handleGptSearchClick}
