@@ -28,8 +28,8 @@ const Browse = () => {
         <>
           {!movies ? (
             <>
-              <h1 className="pt-[40%] font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
-                Please Use Any Vpn for full access of this website... ❤ Thank
+              <h1 className="pt-[40%] pb-[20%] font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
+                <span className="text-red-500">! </span> Please Use Any Vpn for full access of this website... ❤ Thank
                 You ❤
               </h1>
               <GptSearch />
@@ -38,7 +38,7 @@ const Browse = () => {
             <>
               <MainContainer />
               <SecondaryContainer />
-              <h1 className="font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
+              <h1 className="pt-[40%] pb-[20%] font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
                 ❤ Everything is Good 😚
               </h1>
             </>
