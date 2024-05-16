@@ -30,8 +30,9 @@ const Login = () => {
   const handleButtonClick = () => {
     // CheckValidData(name,email,password);
     // console.log(name.current.value);
-    console.log(email.current.value);
-    console.log(password.current.value);
+    // ! Email and Password console log
+    // console.log(email.current.value);
+    // console.log(password.current.value);
 
     const Messege = CheckValidData(
       !isSignInForm ? name.current.value : null,
@@ -39,7 +40,7 @@ const Login = () => {
       password.current.value
     );
 
-    console.log(Messege);
+    // console.log(Messege);
     setErrorMessege(Messege);
     if (Messege) return;
 
@@ -79,7 +80,7 @@ const Login = () => {
               setErrorMessege(error.message);
             });
 
-          console.log(user);
+          // console.log(user);
           //* ---------------navigating using react router Dom if signout or in sign/up login page-------------------
 
           // ...
@@ -102,7 +103,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
           // * ------------ navigating using react router Dom if User Successfully navigating ---------------------------
 
           // ...

@@ -36,11 +36,11 @@ const Browse = () => {
             </>
           ) : (
             <>
-              <MainContainer />
-              <SecondaryContainer />
-              <h1 className=" font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
+              <h1 className="pt-[40%] font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
                 ❤ Everything is Good 😚
               </h1>
+              <MainContainer />
+              <SecondaryContainer />
             </>
           )}
         </>

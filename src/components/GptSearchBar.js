@@ -26,7 +26,7 @@ const GptSearchBar = () => {
   return (
     <>
       {/* //? form start search bar  */}
-      ------------------------------------------
+      
       <div className="pt-[45%] sm:pt-[25%]  md:pt-[10%] flex flex-col  justify-center items-center mx-auto w-[96%] md:w-auto">
         <form
           className="w-auto  md:w-1/2 bg-black grid grid-cols-12"
@@ -67,7 +67,7 @@ const GptSearchBar = () => {
       
 
       {/* // ! form Search results End  */}
-      ----------------------------------------
+      
     </>
   );
 };
