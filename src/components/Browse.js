@@ -29,7 +29,7 @@ const Browse = () => {
           {!movies ? (
             <>
               <h1 className="pt-[40%] pb-[20%] font-bold text-lg text-center bg-slate-700 shadow-md text-green-200">
-                <span className="text-red-500">! </span> Please Use Any Vpn for
+                <span className="text-red-500">! </span> Please Use Any <span className="text-yellow-400">Vpn</span> for
                 full access of this website... ❤ Thank You ❤
               </h1>
               <div className="mt-[-200px]">
