@@ -91,7 +91,7 @@ const Header = () => {
             }
             onClick={handleGptSearchClick}
           >
-            {showGptSearch ? "🏠 Home" : "GPT Search"}
+            {showGptSearch ? "🏠 Home" : "Movie Suggestions"}
           </button>
           <section className="SignOutbtn flex gap-3">
             {!showGptSearch && (
