@@ -15,6 +15,9 @@ const Browse = () => {
   usePopularMovies();
   useTopRatedMovies();
   useUpcomingMovies();
+
+  const movies = useSelector((store) => store.movies?.nowPlayMovies);
+
   return (
     <div className="">
       <Header />
@@ -25,7 +28,14 @@ const Browse = () => {
         <>
           <MainContainer />
           <SecondaryContainer />
-          {<MainContainer />?<h1 className="font-bold text-lg">Everything is Good</h1>:<h1 className="font-bold text-lg">Please Connect Any Vpn</h1>}
+          {!movies ? (
+            <>
+            <h1 className="font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">Please Use Any Vpn for full access of this website... ❤ Thank You ❤</h1>
+            <GptSearch />
+            </>
+          ) : (
+            <h1 className="font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">❤ Everything is Good 😚</h1>
+          )}
         </>
       )}
     </div>
