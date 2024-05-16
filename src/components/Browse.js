@@ -28,7 +28,7 @@ const Browse = () => {
         <>
           {!movies ? (
             <>
-              <h1 className="pt-[40%] pb-[20%] font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
+              <h1 className="pt-[40%] pb-[20%] font-bold text-lg text-center bg-slate-700 shadow-md text-green-200">
                 <span className="text-red-500">! </span> Please Use Any Vpn for
                 full access of this website... ❤ Thank You ❤
               </h1>
