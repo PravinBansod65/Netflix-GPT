@@ -19,7 +19,6 @@ const GptSearchBar = () => {
 
     setMovies(data.Search);
   };
-
   useEffect(() => {
     searchMovies("spider");
   }, []);
@@ -51,10 +50,10 @@ const GptSearchBar = () => {
 
         {movies?.length > 0 ? (
           <div className="container">
-            {movies.map((movie) => (
-              <MovieSearchCards key={movie}  movie={movie} />
+            {movies.map((movie,index) => (
+              <MovieSearchCards key={index}  movie={movie} />
             ))}
-             console.log(movie)
+             {/* console.log(movie) */}
           </div>
         ) : (
           <div className="empty">
