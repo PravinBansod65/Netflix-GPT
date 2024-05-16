@@ -26,15 +26,22 @@ const Browse = () => {
         <GptSearch />
       ) : (
         <>
-          <MainContainer />
-          <SecondaryContainer />
           {!movies ? (
             <>
-            <h1 className="pt-[20%] font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">Please Use Any Vpn for full access of this website... ❤ Thank You ❤</h1>
-            <GptSearch />
+              <h1 className="pt-[20%] font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
+                Please Use Any Vpn for full access of this website... ❤ Thank
+                You ❤
+              </h1>
+              <GptSearch />
             </>
           ) : (
-            <h1 className=" font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">❤ Everything is Good 😚</h1>
+            <>
+              <MainContainer />
+              <SecondaryContainer />
+              <h1 className=" font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
+                ❤ Everything is Good 😚
+              </h1>
+            </>
           )}
         </>
       )}
