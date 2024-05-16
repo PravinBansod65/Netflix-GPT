@@ -32,7 +32,7 @@ const Browse = () => {
                 <span className="text-red-500">! </span> Please Use Any Vpn for
                 full access of this website... ❤ Thank You ❤
               </h1>
-              <div className="mt-[-100px]">
+              <div className="mt-[-200px]">
                 <GptSearch />
               </div>
             </>
