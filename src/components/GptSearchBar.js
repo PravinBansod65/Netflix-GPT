@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import "./movieSearch.css";
 import { MovieSearchCards } from "./MovieSearchCards";
 
-const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=d4f09760";
+const API_URL = "https://www.omdbapi.com/?i=tt3896198&apikey=d4f09760";
 
 const GptSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
