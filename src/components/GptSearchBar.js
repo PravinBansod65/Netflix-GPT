@@ -52,8 +52,9 @@ const GptSearchBar = () => {
         {movies?.length > 0 ? (
           <div className="container">
             {movies.map((movie) => (
-              <MovieSearchCards movie={movie} />
+              <MovieSearchCards key={movie}  movie={movie} />
             ))}
+             console.log(movie)
           </div>
         ) : (
           <div className="empty">
