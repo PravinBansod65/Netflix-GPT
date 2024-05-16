@@ -19,7 +19,7 @@ const Browse = () => {
   const movies = useSelector((store) => store.movies?.nowPlayMovies);
 
   return (
-    <div className="">
+    <div className="bg-gray-900">
       <Header />
       {/* //! logic if else wala for GPT search and maincontainer movies */}
       {showGptSearch ? (
@@ -28,7 +28,7 @@ const Browse = () => {
         <>
           {!movies ? (
             <>
-              <h1 className="pt-[30%] font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
+              <h1 className="pt-[40%] font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
                 Please Use Any Vpn for full access of this website... ❤ Thank
                 You ❤
               </h1>
@@ -36,11 +36,11 @@ const Browse = () => {
             </>
           ) : (
             <>
-              <h1 className="pt-[40%] font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
-                ❤ Everything is Good 😚
-              </h1>
               <MainContainer />
               <SecondaryContainer />
+              <h1 className="font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">
+                ❤ Everything is Good 😚
+              </h1>
             </>
           )}
         </>
