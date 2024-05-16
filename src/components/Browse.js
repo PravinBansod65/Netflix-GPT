@@ -29,12 +29,12 @@ const Browse = () => {
           <MainContainer />
           <SecondaryContainer />
           {!movies ? (
-            <>
+            <div className="mt-[10%]">
             <h1 className="font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">Please Use Any Vpn for full access of this website... ❤ Thank You ❤</h1>
             <GptSearch />
-            </>
+            </div>
           ) : (
-            <h1 className="font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">❤ Everything is Good 😚</h1>
+            <h1 className=" font-bold text-lg text-center bg-neutral-800 shadow-md text-green-200">❤ Everything is Good 😚</h1>
           )}
         </>
       )}
