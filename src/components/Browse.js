@@ -25,6 +25,7 @@ const Browse = () => {
         <>
           <MainContainer />
           <SecondaryContainer />
+          {<MainContainer />?<h1 className="font-bold text-lg">Everything is Good</h1>:<h1 className="font-bold text-lg">Please Connect Any Vpn</h1>}
         </>
       )}
     </div>

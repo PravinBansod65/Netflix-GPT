@@ -62,7 +62,7 @@ const Header = () => {
 
   const handleLanguageChange = (e) => {
     dispatch(changeLangauge(e.target.value));
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
@@ -86,7 +86,7 @@ const Header = () => {
           <button
             className={
               showGptSearch
-                ? "py-2 px-3 m-2  bg-red-400 hover:bg-red-500 rounded-lg text-white font-semibold ml-24 sm:m-2"
+                ? "py-2 px-3 m-2 ml-[118px]  bg-red-400 hover:bg-red-500 rounded-lg text-white font-semibold ml-24 sm:m-2"
                 : "py-2 px-3 m-2 bg-green-500 hover:bg-green-600 rounded-lg text-white font-semibold"
             }
             onClick={handleGptSearchClick}
